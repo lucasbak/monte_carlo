@@ -16,10 +16,10 @@ import javax.swing.JTextField;
  */
 public class ChoiceListener implements ActionListener {
 
-    private final JComboBox boxtoListen;
+    private final JComboBox<String> boxtoListen;
     private JTextField      fieldtoChange;
 
-    public ChoiceListener(JComboBox boxtoListener,JTextField jf) {
+    public ChoiceListener(JComboBox<String> boxtoListener,JTextField jf) {
         this.boxtoListen = boxtoListener;
         this.fieldtoChange=jf;
     }

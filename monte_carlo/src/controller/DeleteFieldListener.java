@@ -16,41 +16,34 @@ import javax.swing.JTextField;
  */
 public class DeleteFieldListener implements MouseListener {
 
-    private JTextField myf;
-    private int Compteur;
-    
+	private JTextField myf;
+	public DeleteFieldListener(JTextField myf){
+		this.myf = myf;
+	}
 
-    public DeleteFieldListener(JTextField myf){
-        this.myf = myf;
-        Compteur=0;
-   }
-    
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		this.myf.setText("");// erase the field
+	}
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-            this.myf.setText("");// erase the field
-            
-      
-    }
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
 
-    @Override
-    public void mousePressed(MouseEvent e) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
 
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		//    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
 
-    @Override
-    public void mouseEntered(MouseEvent e) {
-    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	@Override
+	public void mouseExited(MouseEvent e) {
+		//  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
 
-    @Override
-    public void mouseExited(MouseEvent e) {
-      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

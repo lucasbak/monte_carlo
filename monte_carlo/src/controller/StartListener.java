@@ -22,6 +22,7 @@ import modelSingleThread.MonteCarloSimulationSingleThread;
  */
 public class StartListener implements ActionListener{
 
+	private static final int IS_SINGLE_THREAD_CHOICE = 0;
 	private final ArgumentSetViewer myRootViewer;
 	private final Window myRootWindow;
 
@@ -43,7 +44,7 @@ public class StartListener implements ActionListener{
 		int nSteps=Integer.parseInt(myRootViewer.getnSteps().getText());
 		int nSimulations=Integer.parseInt(myRootViewer.getnSimulations().getText());
 
-		if(myRootWindow.getThreadingChoice().getSelectedIndex()==0){
+		if(myRootWindow.getThreadingChoice().getSelectedIndex()== IS_SINGLE_THREAD_CHOICE){
 
 			MonteCarloSimulationSingleThread mcs=new MonteCarloSimulationSingleThread();
 			resultat = mcs.MonteCarloStandarOption(flag, S, X, T, r, b, v, nSteps, nSimulations);

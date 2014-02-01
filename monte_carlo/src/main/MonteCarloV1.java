@@ -6,7 +6,9 @@
 
 package main;
 
-import model.MonteCarloSimulation;
+import view.viewTemp;
+//import modelSingleThread.MonteCarloSimulation;
+import modelMultiThread.MonteCarloSimulation;
 
 /**
  *
@@ -29,6 +31,9 @@ public class MonteCarloV1 {
         double v=0.45;
         int nSteps=168;
         int nSimulations=100000;
+        
+        MonteCarloSimulation model = new MonteCarloSimulation();
+        viewTemp view = new viewTemp(model);
         
         System.out.println("le resultat est :"+ simulationOneThread.MonteCarloStandarOption(Flag,S,X,r,T,b,v,nSteps,nSimulations));
     }

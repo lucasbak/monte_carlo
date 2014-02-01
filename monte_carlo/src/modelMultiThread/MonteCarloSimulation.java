@@ -41,7 +41,6 @@ public class MonteCarloSimulation {
 			z=-1;
 		}
 
-
 		for(int i=1;i<nSimulations;i++){
 			pool.add(new Callable<Double>(){
 
@@ -53,19 +52,19 @@ public class MonteCarloSimulation {
 					}
 					return St;
 				}
-
 			});
-
-			final ExecutorService executorPool = Executors.newFixedThreadPool(poolSize);    
-			final List<Future<Double>> valueOfSimulations = executorPool.invokeAll(pool, 10000, TimeUnit.SECONDS);
-			
-			//wait all
-			executorPool.shutdown();
-			
-			for(Future<Double> valueOfASimulation : valueOfSimulations){
-				Sum=Sum+Math.max(z*(valueOfASimulation.get()-X), 0);
-			}
 		}
+		
+		final ExecutorService executorPool = Executors.newFixedThreadPool(poolSize);    
+		final List<Future<Double>> valueOfSimulations = executorPool.invokeAll(pool, 10000, TimeUnit.SECONDS);
+		
+		//wait all
+		executorPool.shutdown();
+		
+		for(Future<Double> valueOfASimulation : valueOfSimulations){
+			Sum=Sum+Math.max(z*(valueOfASimulation.get()-X), 0);
+		}
+
 
 		resultat=Math.exp(-r * T)*(Sum/nSimulations);
 		return resultat;

@@ -6,9 +6,11 @@
 
 package main;
 
+import java.util.concurrent.ExecutionException;
+
 import view.viewTemp;
-//import modelSingleThread.MonteCarloSimulation;
-import modelMultiThread.MonteCarloSimulation;
+import modelSingleThread.MonteCarloSimulation;
+//import modelMultiThread.MonteCarloSimulation;
 
 /**
  *
@@ -35,7 +37,10 @@ public class MonteCarloV1 {
         MonteCarloSimulation model = new MonteCarloSimulation();
         viewTemp view = new viewTemp(model);
         
-        System.out.println("le resultat est :"+ simulationOneThread.MonteCarloStandarOption(Flag,S,X,r,T,b,v,nSteps,nSimulations));
+        long before = System.currentTimeMillis();
+		System.out.println("le resultat est :"+ simulationOneThread.MonteCarloStandarOption(Flag,S,X,r,T,b,v,nSteps,nSimulations));
+		long after = System.currentTimeMillis();
+		System.out.println("It take "+(after-before)+" millisecondes");
     }
     
 }

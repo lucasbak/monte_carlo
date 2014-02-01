@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 
 import controller.ControllerFrame;
 import modelSingleThread.MonteCarloSimulation;
+//import modelMultiThread.MonteCarloSimulation;
+
 
 public class viewTemp extends JFrame implements Observer {
 

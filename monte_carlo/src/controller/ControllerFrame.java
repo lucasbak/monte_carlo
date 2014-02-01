@@ -4,8 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import view.viewTemp;
-import modelSingleThread.MonteCarloSimulation;
-//import modelMultiThread.MonteCarloSimulation;
+import model.MonteCarloSimulation;
 
 
 public class ControllerFrame implements ActionListener {

@@ -14,17 +14,19 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
+import model.MonteCarloSimulation;
+
 /**
  *
  * @author Bakalian
  */
-public class MonteCarloSimulation {
+public class MonteCarloSimulationMultiThread implements MonteCarloSimulation {
 	public double MonteCarloStandarOption(String CallPutFlag,final double S,double X,double T,double r,double b,double v,final int nSteps,int nSimulations) throws InterruptedException, ExecutionException{
+		final List<Callable<Double>> pool = new ArrayList<Callable<Double>>();
 		final double blockingCoefficient = 0.9;
 		final int poolSize = (int)(Runtime.getRuntime().availableProcessors() / (1 - blockingCoefficient));
-		final List<Callable<Double>> pool = new ArrayList<Callable<Double>>();
-
-		double dt,St,Sum = 0;
+		
+		double dt,Sum = 0;
 		final double Drift;
 		final double vSqrdt;
 		int z = 1;
@@ -64,9 +66,8 @@ public class MonteCarloSimulation {
 		for(Future<Double> valueOfASimulation : valueOfSimulations){
 			Sum=Sum+Math.max(z*(valueOfASimulation.get()-X), 0);
 		}
-
-
 		resultat=Math.exp(-r * T)*(Sum/nSimulations);
+		
 		return resultat;
 	}
 }

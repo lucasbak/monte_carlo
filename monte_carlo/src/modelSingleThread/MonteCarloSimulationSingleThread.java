@@ -6,11 +6,13 @@
 package modelSingleThread;
 import java.util.Random;
 
+import model.MonteCarloSimulation;
+
 /**
  *
  * @author Bakalian
  */
-public class MonteCarloSimulation {
+public class MonteCarloSimulationSingleThread implements MonteCarloSimulation {
 	public double MonteCarloStandarOption(String CallPutFlag,double S,double X,double T,double r,double b,double v,int nSteps,int nSimulations){
 		double dt,St,Sum,Drift,vSqrdt;
 		int z = 1;

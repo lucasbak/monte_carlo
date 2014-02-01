@@ -9,8 +9,9 @@ package main;
 import java.util.concurrent.ExecutionException;
 
 import view.viewTemp;
-import modelSingleThread.MonteCarloSimulation;
-//import modelMultiThread.MonteCarloSimulation;
+import model.MonteCarloSimulation;
+import modelMultiThread.MonteCarloSimulationMultiThread;
+import modelSingleThread.MonteCarloSimulationSingleThread;
 
 /**
  *
@@ -25,7 +26,7 @@ public class MonteCarloV1 {
      */
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         
-        MonteCarloSimulation simulationOneThread=new MonteCarloSimulation();
+        MonteCarloSimulation simulationOneThread=new MonteCarloSimulationSingleThread();
         String Flag="c";
         double S=40;
         double X=50;

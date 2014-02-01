@@ -20,8 +20,10 @@ public class MonteCarloV1 {
 
     /**
      * @param args the command line arguments
+     * @throws ExecutionException 
+     * @throws InterruptedException 
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
         
         MonteCarloSimulation simulationOneThread=new MonteCarloSimulation();
         String Flag="c";
@@ -34,8 +36,8 @@ public class MonteCarloV1 {
         int nSteps=168;
         int nSimulations=100000;
         
-        MonteCarloSimulation model = new MonteCarloSimulation();
-        viewTemp view = new viewTemp(model);
+        //MonteCarloSimulation model = new MonteCarloSimulation();
+        //viewTemp view = new viewTemp(model);
         
         long before = System.currentTimeMillis();
 		System.out.println("le resultat est :"+ simulationOneThread.MonteCarloStandarOption(Flag,S,X,r,T,b,v,nSteps,nSimulations));
